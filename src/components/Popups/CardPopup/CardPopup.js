@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import './DicePopup.css';
+import React from 'react';
+import './CardPopup.css';
 
-const DicePopup = (props) => {
+const CardPopup = (props) => {
 
     
     
     
     return (
         <div className='wager-container'>
-            <h3>Wanna play Dice?</h3>
+            <h3>Lets play cards!</h3>
             <div className="wager-buttons">
                 <button 
                 onClick ={props.decreaseWager}
@@ -20,7 +20,7 @@ const DicePopup = (props) => {
             </div>
             {/* {WagerButtons} */}
             <button 
-            className="roll-dice" onClick={() => props.adjustGold(props.wager)}>Roll 'em!</button>
+            className="play-cards" onClick={() => props.adjustGold(props.wager)}>Deal 'em!</button>
 
             <h4 className="your-gold">Your gold: {props.gold}</h4>
             
@@ -30,4 +30,4 @@ const DicePopup = (props) => {
     );
 }
 
-export default DicePopup;
+export default CardPopup;
