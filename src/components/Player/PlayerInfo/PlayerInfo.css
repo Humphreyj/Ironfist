@@ -1,0 +1,8 @@
+.player-info {
+    
+    z-index: 2;
+    transition: all .3s ease-out;
+}
+.avatar {
+    width: 50%;
+}
