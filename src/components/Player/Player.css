@@ -7,7 +7,7 @@
     left: 0;
     top: 0;
     transition: all .4s ease-out;
-    z-index: 4;
+    z-index: 600;
 }
 
 .player-close {

@@ -1,0 +1,9 @@
+.chat-entry {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3%;
+}
+.user-name {
+    margin-right: .5em;
+}

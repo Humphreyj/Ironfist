@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './MainContent.css';
 import Modal from '../UI/Modal/Modal';
+import ChatDisplay from '../ChatDisplay/ChatDisplay';
+import PlayerInput from '../PlayerInput/PlayerInput';
 
 
 import ActionBar from '../ActionBar/ActionBar';
@@ -8,37 +10,26 @@ import ActionBar from '../ActionBar/ActionBar';
 
 const MainContent = (props) => {
 
-    const [modals,showModal] = useState({
-        bar: false,
-        cards: false,
-        dice: false,
-        quest: false
-    })
-    const openBar = () => {
-        showModal({...modals,bar: !modals.bar})
-    }
-    const openCards = () => {
-        showModal({...modals,cards: !modals.cards})
-    }
-    const openDice = () => {
-        showModal({...modals,dice: !modals.dice})
-    }
-    const openQuest = () => {
-        showModal({...modals,quest: !modals.quest})
-    }
+
+
+    
     return (
         <div className = 'main-content'>
             <Modal
-            modals={modals}
+            modals={props.modals}
             adjustGold={props.adjustGold} 
-            gold={props.player.gold}/>
-            <p>Chat Display</p>
-            <p>Player Input</p>
+            gold={props.player.gold}
+            show={props.show}
+            handleBackdrop={props.handleBackdrop}
+            openBar ={props.openBar}/>
+            <ChatDisplay />
+            <PlayerInput />
             <ActionBar
-             openBar ={openBar}
-             openCards={openCards}
-             openDice={openDice}
-             openQuest={openQuest} />           
+             openBar ={props.openBar}
+             openCards={props.openCards}
+             openDice={props.openDice}
+             openQuest={props.openQuest}
+              />           
         </div>
     );
 }

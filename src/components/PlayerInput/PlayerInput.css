@@ -1,0 +1,22 @@
+.player-input {
+    padding-bottom: 1em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+input {
+    width: 80%;
+    height: 2em;
+}
+
+.send-text {
+    margin-left: .5em;
+    height: 2em;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+.send-text:active {
+    outline: none;
+}
