@@ -8,7 +8,7 @@ import Player from './components/Player/Player'
 
 function App() {
 
-  const [playerVisible, showPlayer] = useState(true);
+  const [playerVisible, showPlayer] = useState(false);
   const togglePlayer = () => {
     
     showPlayer(!playerVisible)
