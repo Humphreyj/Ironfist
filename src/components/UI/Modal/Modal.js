@@ -30,7 +30,7 @@ const Modal = (props) => {
                 handleBar={props.openBar} />    
                 <div className = 'Modal'>
                     <BarPopup
-                    adjustGold={props.adjustGold}
+                    adjustGold={props.buyDrink}
                     gold={props.gold} /> 
                 </div>
             </Auxi>
@@ -46,7 +46,7 @@ const Modal = (props) => {
                         wager={wager}
                         increaseWager={increaseWager}
                         decreaseWager={decreaseWager}
-                        adjustGold={props.adjustGold}
+                        gamble={props.gamble}
                         gold={props.gold} /> 
                     </div>
                 </Auxi>
@@ -63,7 +63,7 @@ const Modal = (props) => {
                 wager={wager}
                 increaseWager={increaseWager}
                 decreaseWager={decreaseWager}
-                adjustGold={props.adjustGold}
+                gamble={props.gamble}
                 gold={props.gold} /> 
             </div>
         </Auxi>

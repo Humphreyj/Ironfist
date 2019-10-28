@@ -17,7 +17,8 @@ const MainContent = (props) => {
         <div className = 'main-content'>
             <Modal
             modals={props.modals}
-            adjustGold={props.adjustGold} 
+            gamble={props.gamble}
+            buyDrink={props.buyDrink} 
             gold={props.player.gold}
             show={props.show}
             handleBackdrop={props.handleBackdrop}

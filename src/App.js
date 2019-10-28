@@ -37,8 +37,24 @@ function App() {
     ]
   })
 
-  const adjustGold = (wager) => {
-    playerInfoHandler({...player,gold: player.gold + wager});
+  const rollDice = (num) => {
+    let result = 0;
+     result = (Math.floor(Math.random() * num + 1));
+    return result;
+  }
+
+  const gamble = (wager) => {
+    let result = rollDice(20);
+    console.log(result);
+    if(result > 13) {
+      playerInfoHandler({...player,gold: player.gold + wager});
+    }else {
+      playerInfoHandler({...player,gold: player.gold - wager});
+    }
+    
+  }
+  const buyDrink = () => {
+    playerInfoHandler({...player,gold: player.gold - 5})
   }
 
   const [modals,showModal] = useState({
@@ -99,7 +115,8 @@ useEffect(()=> {
     
      <MainContent
      modals={modals}
-     adjustGold={adjustGold}
+     gamble={gamble}
+     buyDrink={buyDrink}
       player={player}
       openBar ={openBar}
       openCards={openCards}
