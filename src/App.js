@@ -8,14 +8,18 @@ import Player from './components/Player/Player'
 
 function App() {
 
-  const [playerVisible, showPlayer] = useState(false);
+  const [playerVisible, showPlayer] = useState(true);
   const togglePlayer = () => {
     
     showPlayer(!playerVisible)
+    console.log(modals.show)
+    console.log(playerVisible)
+    showModal({...modals,show: modals.show = false})
     
   }
   //Handles showing the player menu on mobile
 
+ 
   const [player, playerInfoHandler] =useState({
     name: 'Name',
     race: 'Elf',
@@ -46,38 +50,47 @@ function App() {
 })
 
 const openBar = () => {
+  showModal({...modals,show: !modals.show})
     showModal({...modals,bar: !modals.bar})
-    console.log('butt');
+    console.log(modals.show)
     
 }
 const openCards = () => {
     showModal({...modals,cards: !modals.cards})
+    console.log(modals.show)
 }
 const openDice = () => {
     showModal({...modals,dice: !modals.dice})
+    console.log(modals.show)
 }
 const openQuest = () => {
     showModal({...modals,quest: !modals.quest})
+    console.log(modals.show)
 }
 const handleBackdrop = () => {
-    showModal({...modals,show: !modals.show})
-    if(modals.bar === true) {
-        showModal({...modals,bar: !modals.bar})
-    }else if(modals.cards === true) {
-        showModal({...modals,cards: !modals.cards})
-    }else if(modals.dice === true) {
-        showModal({...modals,dice: !modals.dice})
-    }else if(modals.quest) {
-        showModal({...modals,quest: !modals.quest})
-    }else if(playerVisible) {
-      showPlayer(!playerVisible)
-    }
-}
 
-useEffect(() => {
-  handleBackdrop();
-},[])
+    showModal({...modals,show: !modals.show})
+      if(modals.bar === true) {
+          showModal({...modals,bar: !modals.bar})
+      }else if(modals.cards === true) {
+          showModal({...modals,cards: !modals.cards})
+      }else if(modals.dice === true) {
+          showModal({...modals,dice: !modals.dice})
+      }else if(modals.quest) {
+          showModal({...modals,quest: !modals.quest})
+      }else if(playerVisible) {
+        showPlayer(!playerVisible);
+        showModal({...modals,show: !modals.show})
+      }
   
+      
+}
+useEffect(()=> {
+  handleBackdrop();
+  
+},[])
+
+
 
   const menuVis = playerVisible ? 'player' : 'player-close';
   return (

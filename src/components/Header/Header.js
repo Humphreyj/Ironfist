@@ -6,7 +6,7 @@ import torch from '../../img/torch.gif';
 const Header = (props) => {
     return (
         <div className = 'header'> 
-            <h1 className = 'title'>CHAT BOX</h1>
+            <h1 className = 'title'>Iron Fist Tavern</h1>
             <img
             src={torch}
             alt='burning torch'

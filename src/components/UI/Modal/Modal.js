@@ -38,7 +38,7 @@ const Modal = (props) => {
         }else if(props.modals.cards) {
             return (
                 <Auxi>
-                    <Backdrop
+                    <Backdrop 
                     show={props.modals.show}
                     handleBackdrop={props.handleBackdrop} />    
                     <div className = 'Modal'>
