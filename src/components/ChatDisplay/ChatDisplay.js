@@ -7,24 +7,21 @@ const ChatDisplay = () => {
 
            <div className="chat-entry">
                <h4 className="user-name">StormDwarf:</h4>
-               <p className="chat-message">Is there an Admin on?</p>
+               <p className="chat-message">Lorem ipsum dolor sit amet...</p>
            </div>
            <div className="chat-entry">
                <h4 className="user-name">GrassyGnoll:</h4>
-               <p className="chat-message">Not right now.</p>
+               <p className="chat-message">Lorem ipsum dolor sit amet consectetur.</p>
            </div>
            <div className="chat-entry">
                <h4 className="user-name">BarPatron:</h4>
-               <p className="chat-message">This is some sweey dummy data.</p>
+               <p className="chat-message">Lorem ipsum dolor sit amet?</p>
            </div>
            <div className="chat-entry">
                <h4 className="user-name">StormDwarf:</h4>
                <p className="chat-message">lol yeah.</p>
            </div>
-           <div className="chat-entry">
-               <h4 className="user-name">CleverUserName:</h4>
-               <p className="chat-message">Wanna Duel?</p>
-           </div>
+          
 
         </div>
     );

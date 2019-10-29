@@ -6,7 +6,7 @@ const PlayerStats = (props) => {
         <div className = 'player-stats'>
             <h2 className="title">Statistics</h2>
             <div className="player-health">
-                <h4 className="hp">HP:{props.health}</h4>
+                <h4 className="hp">HP:{props.HP}</h4>
             </div>
             <div className="stats">
                 <p className="stat">STR: {props.str}</p>

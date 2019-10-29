@@ -21,7 +21,7 @@ const Player = (props) => {
                 title={props.player.title}
                 level ={props.player.level} />
             <PlayerStats
-                health = {props.player.health}
+                HP = {props.player.HP}
                 str ={props.player.str}
                 dex = {props.player.dex}
                 end = {props.player.end} />
