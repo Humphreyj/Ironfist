@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './DuelPopup.css';
+import Opponent from './Opponent/Opponent';
+import DuelScreen from './DuelScreen/DuelScreen';
 
 const DuelPopup = (props) => {
 
@@ -13,40 +15,48 @@ const DuelPopup = (props) => {
             str: 9,
             dex: 8,
             end: 10
-        },
-        {
-            name: "Owen",
-            race: 'Human',
-            title: 'Brigand',
-            level: 4,
-            HP: 15,
-            str: 11,
-            dex: 8,
-            end: 12
         }
     ]
     })
     
     
     
-    return (
-        <div className='wager-container'>
-            <h3>Looking to Duel?</h3>
-            <div className="duel-description">
-                {duelData.opponents.map(fighter => {
-                    console.log(fighter)
-                   return(
-                    <div className="opponent">
-                        <h4 className="opponent-name">{fighter.name}</h4>
-                        <h4 className="opponent-level">Lvl: {fighter.level} {fighter.title}</h4>
-                    </div>
-
-                   ) 
-                })}
+    
+    {
+        if(props.dueling) {
+            return (
+                <DuelScreen 
+                player={props.player}
+                name={duelData.opponents[0].name}
+                level={duelData.opponents[0].level}
+                title={duelData.opponents[0].title}
+                HP={duelData.opponents[0].HP}
+                initiateDuel={props.initiateDuel}/>
+            )
+    }else {
+        return (
+            <div className='wager-container'>
+                <h3>Looking to Duel?</h3>
+                <div className="duel-description">
+                    {duelData.opponents.map((fighter,i) => {
+                        console.log(fighter)
+                       return(
+                           <Opponent
+                           key={i}
+                           name={fighter.name}
+                           level={fighter.level}
+                           title={fighter.title}
+                           HP={fighter.HP}
+                           initiateDuel={props.initiateDuel}
+                            />
+                       ) 
+                    })}
+                </div>
+               
             </div>
-           
-        </div>
-    );
+        );
+    }
+}
 }
 
 export default DuelPopup;

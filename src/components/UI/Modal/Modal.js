@@ -76,6 +76,9 @@ const Modal = (props) => {
                 handleBackdrop={props.handleBackdrop} />    
                 <div className = 'Modal'>
                     <DuelPopup
+                    player={props.player}
+                    dueling={props.dueling}
+                    initiateDuel={props.initiateDuel}
                      /> 
                 </div>
             </Auxi>

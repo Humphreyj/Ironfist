@@ -16,9 +16,12 @@ const MainContent = (props) => {
     return (
         <div className = 'main-content'>
             <Modal
+            player={props.player}
             modals={props.modals}
             gamble={props.gamble}
-            buyDrink={props.buyDrink} 
+            buyDrink={props.buyDrink}
+            dueling={props.player.dueling}
+            initiateDuel={props.initiateDuel} 
             gold={props.player.gold}
             show={props.show}
             handleBackdrop={props.handleBackdrop}
@@ -30,6 +33,7 @@ const MainContent = (props) => {
              openCards={props.openCards}
              openDice={props.openDice}
              openDuel={props.openDuel}
+             
               />           
         </div>
     );

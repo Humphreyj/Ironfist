@@ -1,0 +1,11 @@
+.player-duel-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 1px solid;
+    width: 48%;
+    margin: 1em auto;
+    cursor: pointer;
+    
+}

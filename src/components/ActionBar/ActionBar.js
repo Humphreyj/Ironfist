@@ -14,6 +14,7 @@ const actionBar = (props) => {
             onClick = {props.openDice} 
             className="action-btn">Dice</button>
             <button
+            dueling={props.dueling}
             onClick={props.openDuel}
              className="action-btn">Duel</button>  
         </div>

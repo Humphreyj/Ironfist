@@ -23,7 +23,7 @@ function App() {
     race: 'Elf',
     title: 'Title',
     level: 'Player Level',
-    health: 9,
+    HP: 9,
     str: 10,
     dex: 10,
     end: 10,
@@ -31,7 +31,8 @@ function App() {
     inventory: [
         'Old Tankard'
         
-    ]
+    ],
+    dueling: false
   })
 
   const rollDice = (num) => {
@@ -48,12 +49,16 @@ function App() {
     }else {
       playerInfoHandler({...player,gold: player.gold - wager});
     }
-    
   }
   const buyDrink = (cost, item) => {
     playerInfoHandler({...player,gold: player.gold - cost})
     // playerInfoHandler({...player,inventory: player.inventory.push(item)})
     console.log(item);
+  }
+
+  const initiateDuel = () => {
+    playerInfoHandler({...player,dueling: !player.dueling})
+    
   }
 
   const [modals,showModal] = useState({
@@ -116,6 +121,7 @@ useEffect(()=> {
      modals={modals}
      gamble={gamble}
      buyDrink={buyDrink}
+     initiateDuel={initiateDuel}
       player={player}
       openBar ={openBar}
       openCards={openCards}
