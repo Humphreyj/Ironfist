@@ -3,7 +3,25 @@ import './BarPopup.css';
 
 const BarPopup = (props) => {
 
-    const [barInventory,updateBarInventory] = useState(['Ale', 'Grog','Health Potion']);
+    const [barInventory,updateBarInventory] = useState([
+        {
+            name: "Ale",
+            cost: 3,
+            stock: 3
+        },
+        {
+            name: 'Grog',
+            cost: 4,
+            stock: 3
+        },
+        {
+            name: 'Potion',
+            cost: 10,
+            stock: 3
+        }
+    ]);
+
+    
 
     
     if(props.gold <=0) {
@@ -19,13 +37,13 @@ const BarPopup = (props) => {
                 <h3>Need a Drink?</h3>
                 <div className="bar-inventory">
                     {barInventory.map((item,i) => {
-                        return <p key={i} className="bar-item">{item}</p>
+                        return <p
+                                key={i}
+                                className="bar-item"
+                                onClick={() =>props.buyDrink(item.cost,item.name)}>{item.name} {item.cost}G</p>
                     })}
                 </div>
-                {/* {WagerButtons} */}
-                <button 
-                className="buy-drink" onClick={() => props.adjustGold(props.wager)}>Buy Drink</button>
-    
+                
                 <h4 className="your-gold">Your gold: {props.gold}</h4>
                 
     

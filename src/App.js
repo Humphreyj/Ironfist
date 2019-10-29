@@ -12,8 +12,6 @@ function App() {
   const togglePlayer = () => {
     
     showPlayer(!playerVisible)
-    console.log(modals.show)
-    console.log(playerVisible)
     showModal({...modals,show: modals.show = false})
     
   }
@@ -31,9 +29,8 @@ function App() {
     end: 10,
     gold: 55,
     inventory: [
-        'Old Tankard',
-        'Rusty Sword',
-        'Leather Armor'
+        'Old Tankard'
+        
     ]
   })
 
@@ -53,15 +50,17 @@ function App() {
     }
     
   }
-  const buyDrink = () => {
-    playerInfoHandler({...player,gold: player.gold - 5})
+  const buyDrink = (cost, item) => {
+    playerInfoHandler({...player,gold: player.gold - cost})
+    // playerInfoHandler({...player,inventory: player.inventory.push(item)})
+    console.log(item);
   }
 
   const [modals,showModal] = useState({
     bar: false,
     cards: false,
     dice: false,
-    quest: false,
+    duel: false,
     show: false
 })
 
@@ -79,8 +78,8 @@ const openDice = () => {
     showModal({...modals,dice: !modals.dice})
     console.log(modals.show)
 }
-const openQuest = () => {
-    showModal({...modals,quest: !modals.quest})
+const openDuel = () => {
+    showModal({...modals,duel: !modals.duel})
     console.log(modals.show)
 }
 const handleBackdrop = () => {
@@ -92,8 +91,8 @@ const handleBackdrop = () => {
           showModal({...modals,cards: !modals.cards})
       }else if(modals.dice === true) {
           showModal({...modals,dice: !modals.dice})
-      }else if(modals.quest) {
-          showModal({...modals,quest: !modals.quest})
+      }else if(modals.duel) {
+          showModal({...modals,duel: !modals.duel})
       }else if(playerVisible) {
         showPlayer(!playerVisible);
         showModal({...modals,show: !modals.show})
@@ -121,7 +120,7 @@ useEffect(()=> {
       openBar ={openBar}
       openCards={openCards}
       openDice={openDice}
-      openQuest={openQuest}
+      openDuel={openDuel}
       show={modals.show}
       handleBackdrop={handleBackdrop}/>
 

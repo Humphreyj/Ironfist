@@ -29,7 +29,7 @@ const MainContent = (props) => {
              openBar ={props.openBar}
              openCards={props.openCards}
              openDice={props.openDice}
-             openQuest={props.openQuest}
+             openDuel={props.openDuel}
               />           
         </div>
     );

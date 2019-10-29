@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import BarPopup from '../../Popups/BarPopup/BarPopup';
 import CardPopup from '../../Popups/CardPopup/CardPopup';
 import DicePopup from '../../Popups/DicePopup/DicePopup';
-import QuestPopup from '../../Popups/QuestPopup/QuestPopup';
+import DuelPopup from '../../Popups/DuelPopup/DuelPopup';
 import Auxi from '../Auxi/Auxi';
 import Backdrop from '../Backdrop/Backdrop';
 
@@ -30,7 +30,7 @@ const Modal = (props) => {
                 handleBar={props.openBar} />    
                 <div className = 'Modal'>
                     <BarPopup
-                    adjustGold={props.buyDrink}
+                    buyDrink={props.buyDrink}
                     gold={props.gold} /> 
                 </div>
             </Auxi>
@@ -68,14 +68,14 @@ const Modal = (props) => {
             </div>
         </Auxi>
         );
-    }else if(props.modals.quest){
+    }else if(props.modals.duel){
         return (
             <Auxi>
                 <Backdrop
                 show={props.modals.show}
                 handleBackdrop={props.handleBackdrop} />    
                 <div className = 'Modal'>
-                    <QuestPopup
+                    <DuelPopup
                      /> 
                 </div>
             </Auxi>
