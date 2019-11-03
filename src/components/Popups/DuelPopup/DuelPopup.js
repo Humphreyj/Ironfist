@@ -15,6 +15,7 @@ const DuelPopup = (props) => {
             str: 9,
             dex: 8,
             end: 10
+            
         }
     ]
     })
