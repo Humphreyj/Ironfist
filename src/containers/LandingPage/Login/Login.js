@@ -1,21 +1,45 @@
-import React from 'react';
+import React, { useCallback,useContext } from 'react';
+import {withRouter, Redirect} from 'react-router';
 import { Link } from 'react-router-dom';
 import './Login.css';
+import fire from '../../../fire';
+import { AuthContext } from '../../../Auth';
+import { app } from 'firebase';
 
-const Login = (props) => {
+const Login = ({history}) => {
+    const handleLogin = useCallback(
+        async event => {
+            event.preventDefault();
+            const {email, password} =event.target.elements;
+            try {
+                await fire
+                .auth()
+                .signInWithEmailAndPassword(email.value,password.value);
+                history.push('/');
+            } catch (error) {
+                console.log(error)
+            }
+        },
+        [history]
+    )
+    const { currentUser } =useContext(AuthContext);
+
+    if(currentUser) {
+        return <Redirect to='/' />
+    }
     return (
         <div className='Login'>
-            <form>
+            <form onSubmit={handleLogin}>
                 <label>
                     Username: 
                 <input
                 id='usernameInput'
-                name='username'
-                maxLength= '10' 
+                name='email'
                 type="text"
-                onChange={event => {
-                    props.playerInfoHandler({...props.player,name: props.player.name= event.target.value});
-                }}/>
+                // onChange={event => {
+                //     props.playerInfoHandler({...props.player,name: props.player.name= event.target.value});
+                // }}
+                />
                 </label>
 
                 <label>
@@ -27,7 +51,7 @@ const Login = (props) => {
                 type="text"/>
                 </label>
 
-                <Link to='/tavern' ><button className="submit">Submit</button></Link>
+                <button type='submit' className="submit">Submit</button>
             </form>
             
         </div>
