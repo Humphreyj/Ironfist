@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import 'firebase/auth';
 var config = { /* COPY THE ACTUAL CONFIG FROM FIREBASE CONSOLE */
     apiKey: "AIzaSyCp0sS36wXEROM0atpnbPq-YdvHIokEYN4",
     authDomain: "ironfist-tavern.firebaseapp.com",
