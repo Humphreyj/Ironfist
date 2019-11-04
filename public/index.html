@@ -37,7 +37,31 @@
       The build step will place the bundled scripts into the <body> tag.
 
       To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      To create a production bundle, use `npm run build` or `yarn build`.-->
+
+   <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCp0sS36wXEROM0atpnbPq-YdvHIokEYN4",
+    authDomain: "ironfist-tavern.firebaseapp.com",
+    databaseURL: "https://ironfist-tavern.firebaseio.com",
+    projectId: "ironfist-tavern",
+    storageBucket: "ironfist-tavern.appspot.com",
+    messagingSenderId: "337410514616",
+    appId: "1:337410514616:web:94c0cc4485d47cda5dde4d",
+    measurementId: "G-34LV88FTL1"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+    
   </body>
 </html>

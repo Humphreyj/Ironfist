@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import './MainContent.css';
 import Modal from '../UI/Modal/Modal';
 import ChatDisplay from '../ChatDisplay/ChatDisplay';
-import PlayerInput from '../PlayerInput/PlayerInput';
+
 
 
 import ActionBar from '../ActionBar/ActionBar';
@@ -26,8 +26,9 @@ const MainContent = (props) => {
             show={props.show}
             handleBackdrop={props.handleBackdrop}
             openBar ={props.openBar}/>
-            <ChatDisplay />
-            <PlayerInput />
+            <ChatDisplay
+            player={props.player} />
+            
             <ActionBar
              openBar ={props.openBar}
              openCards={props.openCards}
