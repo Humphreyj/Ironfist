@@ -22,7 +22,7 @@ const Resgister = ({history,...props}) => {
         user.updateProfile({
             displayName:props.player.name
         }).then(() => {
-            console.log('updated profile!')
+            console.log('updated profile!' )
         }).catch(err => {
             console.log(err);
         })
@@ -40,9 +40,7 @@ const Resgister = ({history,...props}) => {
                     name='email'
                      
                     type="text"
-                    // onChange={event => {
-                    //     props.playerInfoHandler({...props.player,name: props.player.name= event.target.value});
-                    // }}
+                    
                     />
                 </label>
                 <label>
@@ -53,6 +51,15 @@ const Resgister = ({history,...props}) => {
                     type="text"
                     onChange={event => {
                         props.playerInfoHandler({...props.player,name: props.player.name= event.target.value});
+                        let user = fire.auth().currentUser;
+
+                        user.updateProfile({
+                            displayName:event.target.value
+                        }).then((displayName) => {
+                            console.log( user.displayName )
+                        }).catch(err => {
+                            console.log(err);
+                        })
                     }}
                     />
                 </label>
