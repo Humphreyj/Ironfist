@@ -36,16 +36,19 @@ function App() {
       exact 
       path='/' 
       render={props => <LandingPage {...props} 
-      player={player}
-      playerInfoHandler={playerInfoHandler}
+      
        />}/>
        <Route 
        path='/login'
        component={Login}
+       
        />
        <Route
        path='/register'
-       component={Register}
+       render={props => <Register {...props}
+       player={player}
+      playerInfoHandler={playerInfoHandler}/>
+      }
        />
       <PrivateRoute 
       path='/tavern' 

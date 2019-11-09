@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import fire from '../../../fire';
 import './Register.css';
 
-const Resgister = ({history}) => {
+const Resgister = ({history,...props}) => {
     const handleSignUp = useCallback(async event => {
         event.preventDefault();
         const { email,password,username} = event.target.elements;
@@ -16,13 +16,26 @@ const Resgister = ({history}) => {
         } catch (error) {
             console.log(error);
         }
+
+        let user = fire.auth().currentUser;
+
+        user.updateProfile({
+            displayName:props.player.name
+        }).then(() => {
+            console.log('updated profile!')
+        }).catch(err => {
+            console.log(err);
+        })
     }, [history])
+
+
+
     return (
         <div className='registration'>
             <h3>I'll need to know a bit about you before you can go in.</h3>
             <form onSubmit={handleSignUp}>
-                <label>
-                    UserName
+            <label>
+                    Email
                     <input
                     name='email'
                      
@@ -30,6 +43,17 @@ const Resgister = ({history}) => {
                     // onChange={event => {
                     //     props.playerInfoHandler({...props.player,name: props.player.name= event.target.value});
                     // }}
+                    />
+                </label>
+                <label>
+                    UserName
+                    <input
+                    name='username'
+                     
+                    type="text"
+                    onChange={event => {
+                        props.playerInfoHandler({...props.player,name: props.player.name= event.target.value});
+                    }}
                     />
                 </label>
 

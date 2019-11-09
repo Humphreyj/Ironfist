@@ -31,9 +31,9 @@ const Login = ({history}) => {
         <div className='Login'>
             <form onSubmit={handleLogin}>
                 <label>
-                    Username: 
+                    Email 
                 <input
-                id='usernameInput'
+                
                 name='email'
                 type="text"
                 // onChange={event => {
@@ -46,9 +46,8 @@ const Login = ({history}) => {
                     Password: 
                 <input
                 id='passwordInput'
-                name='password'
-                maxLength= '10' 
-                type="text"/>
+                name='password' 
+                type="password"/>
                 </label>
 
                 <button type='submit' className="submit">Submit</button>
