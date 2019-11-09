@@ -12,6 +12,8 @@ const ChatDisplay = (props) => {
         messages: []
     })
 
+    let user = fire.auth().currentUser;
+
     useEffect(() => {
       fire.database().ref('messages/').on('value', (snapshot) => {
           const currentMessages = snapshot.val()
@@ -45,7 +47,7 @@ const ChatDisplay = (props) => {
     const currentMessage = chatData.messages.map((message,i) => {
         return (
             <div key={message.id} className="chat-entry">
-               <h4 className="user-name">{props.player.name}:</h4>
+               <h4 className="user-name">{user.displayName}:</h4>
                <p className="chat-message">{message.text}</p>
            </div>
         )
