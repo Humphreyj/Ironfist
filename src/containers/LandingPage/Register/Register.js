@@ -12,6 +12,7 @@ const Resgister = ({history}) => {
             await fire
                 .auth()
                 .createUserWithEmailAndPassword(email.value,password.value);
+                history.push('/');
         } catch (error) {
             console.log(error);
         }
@@ -24,7 +25,7 @@ const Resgister = ({history}) => {
                     UserName
                     <input
                     name='email'
-                    maxLength='10' 
+                     
                     type="text"
                     // onChange={event => {
                     //     props.playerInfoHandler({...props.player,name: props.player.name= event.target.value});

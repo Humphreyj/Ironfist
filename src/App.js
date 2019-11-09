@@ -4,6 +4,8 @@ import MainSite from './containers/MainSite/MainSite';
 import LandingPage from './containers/LandingPage/LandingPage';
 import { Route } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Login from './containers/LandingPage/Login/Login';
+import Register from './containers/LandingPage/Register/Register';
 import {AuthProvider} from './Auth';
 
 
@@ -37,6 +39,14 @@ function App() {
       player={player}
       playerInfoHandler={playerInfoHandler}
        />}/>
+       <Route 
+       path='/login'
+       component={Login}
+       />
+       <Route
+       path='/register'
+       component={Register}
+       />
       <PrivateRoute 
       path='/tavern' 
       render={props => <MainSite {...props} 
