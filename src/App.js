@@ -3,6 +3,10 @@ import './App.css';
 import MainSite from './containers/MainSite/MainSite';
 import LandingPage from './containers/LandingPage/LandingPage';
 import { Route } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Login from './containers/LandingPage/Login/Login';
+import Register from './containers/LandingPage/Register/Register';
+import {AuthProvider} from './Auth';
 
 
 
@@ -26,20 +30,33 @@ function App() {
 
 
   return (
-    <div  className="App">
+    <AuthProvider>
+      <div  className="App">
       <Route 
       exact 
       path='/' 
       render={props => <LandingPage {...props} 
-      player={player}
-      playerInfoHandler={playerInfoHandler}
+      
        />}/>
-      <Route 
+       <Route 
+       path='/login'
+       component={Login}
+       
+       />
+       <Route
+       path='/register'
+       render={props => <Register {...props}
+       player={player}
+      playerInfoHandler={playerInfoHandler}/>
+      }
+       />
+      <PrivateRoute 
       path='/tavern' 
       render={props => <MainSite {...props} 
       player={player}
       playerInfoHandler={playerInfoHandler} /> } />
     </div>
+    </AuthProvider>
   );
 }
 

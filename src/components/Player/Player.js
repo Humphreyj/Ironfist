@@ -5,6 +5,7 @@ import PlayerStats from './PlayerStats/PlayerStats';
 import PlayerInventory from './PlayerInventory/PlayerInventory';
 import Auxi from '../UI/Auxi/Auxi';
 import Backdrop from '../UI/Backdrop/Backdrop';
+import fire from '../../fire';
 
 const Player = (props) => {
 
@@ -28,6 +29,9 @@ const Player = (props) => {
             <PlayerInventory 
                 gold = {props.player.gold}
                 inventory ={props.player.inventory} />
+            <button 
+            onClick={() => fire.auth().signOut()} 
+            className="log-out">Log Out</button>
         </div>
         </Auxi>
     );
